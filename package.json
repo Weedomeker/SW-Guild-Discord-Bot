@@ -19,7 +19,7 @@
     "webhook-discord": "^3.7.7"
   },
   "devDependencies": {
-    "electron": "^10.1.6",
+    "electron": "^11.0.3",
     "eslint": "^7.14.0",
     "eslint-config-aqua": "^7.2.4",
     "mocha": "^8.2.1",
