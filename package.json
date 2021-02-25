@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "eslint": "^7.17.0",
-    "eslint-config-aqua": "^7.2.4",
+    "eslint-config-aqua": "^8.1.0",
     "prettier": "^2.2.1"
   },
   "eslintConfig": {
