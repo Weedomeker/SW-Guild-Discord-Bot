@@ -18,7 +18,20 @@ module.exports.run = (client, message) => {
     const secs = d.getSeconds();
 
     // RAPPEL GVG ALLDAYS
-    if ((weekDay >= 1 && weekDay < 6 && hrs === 09 && mins === 00 && secs === 00) || (weekDay >= 1 && weekDay < 6 && hrs === 21 && mins === 00 && secs === 00) || (weekDay === 6 && hrs === 09 && mins === 00 && secs === 00) || (weekDay === 6 && hrs === 17 && mins === 00 && secs === 00)) {
+    if (
+      (weekDay >= 1 &&
+        weekDay < 6 &&
+        hrs === 09 &&
+        mins === 00 &&
+        secs === 00) ||
+      (weekDay >= 1 &&
+        weekDay < 6 &&
+        hrs === 21 &&
+        mins === 00 &&
+        secs === 00) ||
+      (weekDay === 6 && hrs === 09 && mins === 00 && secs === 00) ||
+      (weekDay === 6 && hrs === 17 && mins === 00 && secs === 00)
+    ) {
       const embed = new MessageEmbed()
 
         .setColor("#FF0000")
@@ -27,6 +40,22 @@ module.exports.run = (client, message) => {
         .addField(
           "Yo les moches",
           "Si quelqu'un peut relancer la gvg c'est cool, merci beaucoup !"
+        )
+        .setTimestamp()
+        .setFooter(message.author.username, message.author.avatarURL());
+
+      client.channels.cache.get(CHANNELS.DESK.id).send(embed);
+    }
+    // RAPPEL GVO Mercredi
+    if (weekDay === 3 && hrs === 21 && mins === 30 && secs === 00) {
+      const embed = new MessageEmbed()
+
+        .setColor("#FF4E0C")
+        .attachFiles(gvoImg)
+        .setThumbnail("attachment://gvo.png")
+        .addField(
+          "Hey mes petites cailles en sucre",
+          "Faut lancer les inscriptions GVO. En vous remerciant. Cordialement etc etc.."
         )
         .setTimestamp()
         .setFooter(message.author.username, message.author.avatarURL());
@@ -70,13 +99,13 @@ module.exports.run = (client, message) => {
       client.channels.cache
         .get(CHANNELS.ANNC.id)
         .send(embed)
-        .then(msg => {
-          msg.react("☝️");
+        .then(async msg => {
+          await msg.react("☝️");
         });
     }
 
     // GVO Inscription
-    if (weekDay === 0 && hrs === 12 && mins === 00 && secs === 00) {
+    if (weekDay === 0 && hrs === 12 && mins === 00 && secs === 02) {
       const embed = new MessageEmbed()
         .setTitle("Inscriptions Gvo 19h30!")
         .setColor("#FF4E0C ")
@@ -93,9 +122,12 @@ module.exports.run = (client, message) => {
         .setTimestamp()
         .setFooter(message.author.username, message.author.avatarURL());
 
-      client.channels.cache.get(CHANNELS.ANNC.id).send(embed).then(msg => {
-        msg.react("☝️");
-      });
+      client.channels.cache
+        .get(CHANNELS.ANNC.id)
+        .send(embed)
+        .then(async msg => {
+          await msg.react("☝️");
+        });
     }
 
     // ABSENTS TARTA
@@ -116,9 +148,12 @@ module.exports.run = (client, message) => {
           .setTimestamp()
           .setFooter(message.author.username, message.author.avatarURL());
         client.channels.cache.get(CHANNELS.ABS.id).send("@everyone");
-        client.channels.cache.get(CHANNELS.ABS.id).send(embed).then(msg => {
-          msg.react("☝️");
-        });
+        client.channels.cache
+          .get(CHANNELS.ABS.id)
+          .send(embed)
+          .then(msg => {
+            msg.react("☝️");
+          });
         const falsedataJson = JSON.stringify(falseData);
         fs.writeFileSync("config.json", falsedataJson);
       } else {
@@ -130,7 +165,7 @@ module.exports.run = (client, message) => {
   }, 1000);
 
   client.channels.cache.get(CHANNELS.LOG.id).send(
-    "Annonces GVG et GVO lancées.\n\`Mercredi: 12h Abs Tarta\nJeudi: 21h grosse def.\nDimanche: 12h troll def. ET Inscription GVO !!!\`"
+    "Annonces GVG et GVO lancées.\n\`Mercredi: 12h Abs Tarta / 21h30 Rappel GVO\nJeudi: 21h grosse def.\nDimanche: 12h troll def. ET Inscription GVO !!!\`"
   );
 };
 
