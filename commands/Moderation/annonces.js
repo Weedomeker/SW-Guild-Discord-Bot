@@ -18,7 +18,7 @@ module.exports.run = (client, message) => {
     const secs = d.getSeconds();
 
     // RAPPEL GVG ALLDAYS
-    if (
+    /* if (
       (weekDay >= 1 &&
         weekDay < 6 &&
         hrs === 09 &&
@@ -45,7 +45,7 @@ module.exports.run = (client, message) => {
         .setFooter(message.author.username, message.author.avatarURL());
 
       client.channels.cache.get(CHANNELS.DESK.id).send(embed);
-    }
+    }*/
     // RAPPEL GVO Mercredi
     if (weekDay === 3 && hrs === 21 && mins === 30 && secs === 00) {
       const embed = new MessageEmbed()

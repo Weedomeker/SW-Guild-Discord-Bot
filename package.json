@@ -1,6 +1,6 @@
 {
   "name": "bot",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Discord Bot for Orphea Guild",
   "main": "main.js",
   "repository": "https://github.com/Weedomeker/bot-discord.git",
@@ -8,7 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^4.6.0",
-    "discord.js": "^12.5.1",
+    "discord.js": "^12.5.3",
     "emoji-unicode": "^2.0.1",
     "forever-monitor": "^3.0.3",
     "formidable": "^1.2.2",
@@ -43,6 +43,5 @@
       ],
       "curly": "off"
     }
-  },
-  "optionalDependencies": {}
+  }
 }
