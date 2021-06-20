@@ -111,10 +111,10 @@ const MESSAGES = {
         cooldown: 3,
         args: false
       },
-      BOTSTATS: {
-        name: "botstats",
+      INFOBOT: {
+        name: "infobot",
         description: "Info sur le bot.",
-        aliases: ["botstat", "botstats", "statsbot", "stbot"],
+        aliases: ["infobot", "infosbots", "ibot", "stbot"],
         category: "misc",
         isAdmin: false,
         permissions: false,

@@ -34,4 +34,4 @@ module.exports.run = async (client, message) => {
   message.channel.send(embed);
 };
 
-module.exports.help = MESSAGES.COMMANDS.MISC.BOTSTATS;
+module.exports.help = MESSAGES.COMMANDS.MISC.INFOBOT;
