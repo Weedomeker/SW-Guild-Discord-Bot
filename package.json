@@ -7,7 +7,7 @@
   "author": "Weedomeker <weedomeker@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "^4.6.0",
+    "bootstrap": "^5.0.2",
     "braces": "^1.8.5",
     "discord.js": "^12.5.3",
     "emoji-unicode": "^2.0.1",
