@@ -8,7 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^4.6.0",
-    "braces": "^1.8.5",
+    "braces": "^2.3.1",
     "discord.js": "^12.5.3",
     "emoji-unicode": "^2.0.1",
     "forever-monitor": "^1.5.2",
