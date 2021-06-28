@@ -14,7 +14,7 @@
     "forever-monitor": "^1.5.2",
     "formidable": "^1.2.2",
     "fs": "0.0.1-security",
-    "fs-extra": "^9.1.0",
+    "fs-extra": "^10.0.0",
     "minimist": "^0.0.10",
     "moment": "^2.29.1",
     "mongoose": "^5.12.0",
