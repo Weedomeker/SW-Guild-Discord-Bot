@@ -46,7 +46,7 @@ module.exports = async (client, messageReaction, user) => {
   }
   if (emoji === "✅" && message.channel.id === channel.id) {
     await message.edit(`~~${message.content}~~`);
-    /* // recup id user
+    // recup id user
     const usrFind = await User.findOne({ userID: user.id });
     // stock user lanternes db
     const usrLant = usrFind.lanternes;
@@ -57,7 +57,7 @@ module.exports = async (client, messageReaction, user) => {
       await User.updateOne({userID: user.id}, {lanternes: 0});
     }
     console.log(`${user.username}: update db ${usrLant - 1} lanternes restantes.`);
-    if (usrLant === 5) {
+    /* if (usrLant === 5) {
       await message.edit(`~~${message.content}~~`);
       await message.react(lta);
       await message.react(ltb);
