@@ -1,5 +1,3 @@
-/* eslint-disable object-curly-spacing */
-/* eslint-disable quote-props */
 const { CHANNELS } = require("../../util/constants");
 const { User } = require("../../models/index");
 

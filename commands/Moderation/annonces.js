@@ -61,6 +61,7 @@ module.exports.run = (client, message) => {
         .setFooter(message.author.username, message.author.avatarURL());
 
       client.channels.cache.get(CHANNELS.DESK.id).send(embed);
+      client.channels.cache.get(CHANNELS.DESK.id).send("@Neph");
     }
 
     // DEF JEUDI

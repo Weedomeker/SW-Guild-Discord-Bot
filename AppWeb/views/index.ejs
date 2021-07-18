@@ -1,0 +1,84 @@
+<%-include("header");-%>
+
+<body>
+  <!-- <script>
+    function showContent() {
+      document.querySelector(".loader-container").classList.add("hidden");
+    }
+    setTimeout(showContent, 3000);
+  </script>
+  <div class="loader-container">
+    <div class="loader"></div>
+    <p>GUILDE ORPHEA</p>
+    <div class="filet"></div>
+  </div> -->
+
+  <div class="container-grid">
+    <header>
+      ORPHEA
+      <div class="filet"></div>
+    </header>
+
+    <nav>
+      <div class="list-nav">
+        <a href="#">Lorem</a>
+        <a href="#">Lorem</a>
+        <a href="#">Lorem</a>
+        <a href="#">Lorem</a>
+      </div>
+    </nav>
+    <div class="left"></div>
+    <main>
+      <div class="Annonce">
+        ANNONCES
+      </div>
+      <div class="Membres">
+        <h2>Membres</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Membres</th>
+              <th>Depuis le</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <%-members%>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="Arene">
+        <h2>Arene Score</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Membres</th>
+              <th>Arene pts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <%-arene%>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="Activity">
+        <h2>Activity Score</h2>
+        <table>
+          <tbody>
+            <tr>
+              <%-activity%> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Last Update: <%- update %> </p>
+    </main>
+    <div class="right"></div>
+    <body>
+      <%-include("footer");-%>
+    </body>
+  </div>
+</body>
