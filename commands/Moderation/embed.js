@@ -1,6 +1,5 @@
 // @ts-check
 const { MessageEmbed } = require("discord.js");
-const { MESSAGES } = require("../../util/constants");
 const fs = require("fs");
 
 module.exports.run = (client, message) => {
@@ -19,4 +18,13 @@ module.exports.run = (client, message) => {
   message.channel.send(embed);
 };
 
-module.exports.help = MESSAGES.COMMANDS.MODERATION.EMBED;
+module.exports.help = {
+  name: "embed",
+  aliases: ["an", "ann"],
+  category: "moderation",
+  description: "Envoie un embed !",
+  isAdmin: false,
+  permissions: true,
+  args: false,
+  usage: "test"
+}

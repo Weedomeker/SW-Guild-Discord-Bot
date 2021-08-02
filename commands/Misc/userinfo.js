@@ -1,6 +1,6 @@
 /* eslint-disable prefer-destructuring */
 const { MessageEmbed } = require("discord.js");
-const { MESSAGES } = require("../../util/constants");
+
 const moment = require("moment");
 
 module.exports.run = async (client, message, args, settings, dbUser) => {
@@ -16,4 +16,14 @@ module.exports.run = async (client, message, args, settings, dbUser) => {
   }
 };
 
-module.exports.help = MESSAGES.COMMANDS.MISC.USERINFO;
+module.exports.help = {
+  name: "userinfo",
+  description: "Info sur toi même ou un membre de la guilde.",
+  aliases: "user",
+  category: "misc",
+  isAdmin: false,
+  permissions: false,
+  cooldown: 3,
+  usage: "<command_name> <member>",
+  args: false
+}

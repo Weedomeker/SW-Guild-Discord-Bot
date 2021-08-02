@@ -1,4 +1,4 @@
-const { MESSAGES } = require("../../util/constants");
+
 
 module.exports.run = async (client, message) => {
   const msg = await message.channel.send("Ping...");
@@ -8,4 +8,13 @@ Api ping: \`${Math.round(client.ws.ping)} ms\``
   );
 };
 
-module.exports.help = MESSAGES.COMMANDS.MISC.PING;
+module.exports.help = {
+  name: "ping",
+  description: "Temps de réponse serveur / client.",
+  aliases: "pg",
+  category: "misc",
+  isAdmin: false,
+  permissions: false,
+  cooldown: 3,
+  args: false
+}

@@ -1,6 +1,3 @@
-/* eslint-disable guard-for-in */
-/* eslint-disable prefer-template */
-const { MESSAGES } = require("../../util/constants")
 const { MessageEmbed } = require("discord.js")
 const fs = require("fs-extra")
 const moment = require("moment")
@@ -31,5 +28,13 @@ module.exports.run = (client, message) => {
   message.channel.send(embed)
 };
 
-module.exports.help = MESSAGES.COMMANDS.MISC.ARENA
+module.exports.help = {
+  name: "arena",
+  aliases: ["arena", "arene"],
+  category: "misc",
+  description: "Scores Arene IG",
+  isAdmin: false,
+  permissions: false,
+  args: false
+}
 

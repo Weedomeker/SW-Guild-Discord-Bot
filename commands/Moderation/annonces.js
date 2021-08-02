@@ -1,7 +1,7 @@
 /* eslint-disable quotes */
 /* eslint-disable no-octal */
 /* eslint-disable no-mixed-operators */
-const { MESSAGES, CHANNELS } = require("../../util/constants");
+const {  CHANNELS } = require("../../util/channels");
 const { MessageEmbed, MessageAttachment } = require("discord.js");
 const trollImg = new MessageAttachment("./assets/img/troll.png");
 const defImg = new MessageAttachment("./assets/img/def.png");
@@ -170,4 +170,13 @@ module.exports.run = (client, message) => {
   );
 };
 
-module.exports.help = MESSAGES.COMMANDS.MODERATION.ANNONCES;
+module.exports.help = {
+  name: "annonces",
+  aliases: ["annonces", "ann", "an", "anc", "announces"],
+  category: "moderation",
+  description:
+    "Annonce automatique des défenses gvg (grosses defs / trolls defs)",
+  isAdmin: false,
+  permissions: true,
+  args: false
+}

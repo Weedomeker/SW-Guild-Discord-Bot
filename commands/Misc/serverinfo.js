@@ -1,6 +1,6 @@
 /* eslint-disable prefer-destructuring */
 const { MessageEmbed } = require("discord.js");
-const { MESSAGES } = require("../../util/constants");
+
 const moment = require("moment");
 
 module.exports.run = (client, message) => {
@@ -21,4 +21,13 @@ module.exports.run = (client, message) => {
   message.channel.send(embed);
 };
 
-module.exports.help = MESSAGES.COMMANDS.MISC.SERVERINFO;
+module.exports.help = {
+  name: "serverinfo",
+  description: "Info sur le discord.",
+  aliases: "server",
+  category: "misc",
+  isAdmin: false,
+  permissions: false,
+  cooldown: 3,
+  args: false
+}

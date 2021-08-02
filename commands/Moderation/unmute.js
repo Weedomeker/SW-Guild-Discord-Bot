@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { MESSAGES, CHANNELS } = require("../../util/constants");
+const {  CHANNELS } = require("../../util/channels");
 
 module.exports.run = async (client, message, args) => {
   const user = message.guild.member(message.mentions.users.first());
@@ -18,4 +18,14 @@ module.exports.run = async (client, message, args) => {
   client.channels.cache.get(CHANNELS.LOG.id).send(embed);
 };
 
-module.exports.help = MESSAGES.COMMANDS.MODERATION.UNMUTE;
+module.exports.help = {
+  name: "unmute",
+  aliases: ["unmute", "nomute", "stopmute", "um"],
+  category: "moderation",
+  description: "Unmute l'utilisateur mentionné.",
+  permissions: true,
+  isAdmin: true,
+  cooldown: 3,
+  args: true,
+  usage: "<@user>"
+}

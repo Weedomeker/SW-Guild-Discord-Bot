@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { MESSAGES, CHANNELS } = require("../../util/constants");
+const {  CHANNELS } = require("../../util/channels");
 
 module.exports.run = async (client, message, args) => {
   if (isNaN(args[0]) || (args[0] < 1 || args[0] > 100))
@@ -21,4 +21,14 @@ module.exports.run = async (client, message, args) => {
   client.channels.cache.get(CHANNELS.LOG.id).send(embed);
 };
 
-module.exports.help = MESSAGES.COMMANDS.MODERATION.CLEAR;
+module.exports.help = {
+  name: "clear",
+  aliases: ["clear", "cls", "del"],
+  category: "moderation",
+  description: "Suppression des messages",
+  permissions: true,
+  isAdmin: false,
+  cooldown: 3,
+  args: true,
+  usage: "<nbr (1-100)>"
+}

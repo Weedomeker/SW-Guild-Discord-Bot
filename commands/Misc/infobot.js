@@ -1,6 +1,6 @@
 const discordVs = require("discord.js");
 const { MessageEmbed } = require("discord.js");
-const { MESSAGES } = require("../../util/constants");
+
 const fs = require("fs");
 module.exports.run = async (client, message) => {
   const rawdata = fs.readFileSync("package.json");
@@ -34,4 +34,13 @@ module.exports.run = async (client, message) => {
   message.channel.send(embed);
 };
 
-module.exports.help = MESSAGES.COMMANDS.MISC.INFOBOT;
+module.exports.help = {
+  name: "infobot",
+  description: "Info sur le bot.",
+  aliases: ["infobot", "infosbots", "ibot", "stbot"],
+  category: "misc",
+  isAdmin: false,
+  permissions: false,
+  cooldown: 3,
+  args: false
+}

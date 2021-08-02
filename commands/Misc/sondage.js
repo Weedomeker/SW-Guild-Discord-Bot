@@ -1,6 +1,4 @@
 const { MessageEmbed } = require("discord.js");
-const { MESSAGES } = require("../../util/constants");
-
 module.exports.run = async (client, message, args) => {
   const embed = new MessageEmbed()
     .setAuthor(message.author.username, message.author.displayAvatarURL())
@@ -19,4 +17,14 @@ module.exports.run = async (client, message, args) => {
   await sondage.react("👀");
 };
 
-module.exports.help = MESSAGES.COMMANDS.MISC.SONDAGE;
+module.exports.help = {
+  name: "sondage",
+  description: "Crée un sondage",
+  aliases: ["sdg", "poll", "sond"],
+  category: "misc",
+  isAdmin: false,
+  permissions: false,
+  cooldown: 1,
+  usage: "<sondage>",
+  args: true
+}

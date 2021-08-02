@@ -1,6 +1,4 @@
-/* eslint-disable guard-for-in */
-/* eslint-disable prefer-template */
-const { MESSAGES } = require("../../util/constants");
+
 const { MessageEmbed } = require("discord.js");
 const fs = require("fs");
 const moment = require("moment");
@@ -35,4 +33,12 @@ module.exports.run = (client, message) => {
   message.channel.send(embed);
 };
 
-module.exports.help = MESSAGES.COMMANDS.MISC.GUILDE;
+module.exports.help = {
+  name: "guilde",
+  aliases: ["guilde", "gld", "g"],
+  category: "misc",
+  description: "Membres de la guilde (ig).",
+  isAdmin: false,
+  permissions: false,
+  args: false
+}

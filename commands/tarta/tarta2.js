@@ -1,5 +1,5 @@
 const { MessageEmbed, MessageAttachment } = require("discord.js");
-const { MESSAGES, CHANNELS } = require("../../util/constants");
+const {  CHANNELS } = require("../../util/channels");
 const tarta2Img = new MessageAttachment("./assets/img/tarta2.png");
 
 module.exports.run = (client, message, args) => {
@@ -31,4 +31,14 @@ module.exports.run = (client, message, args) => {
   });
 };
 
-module.exports.help = MESSAGES.COMMANDS.TARTA.TARTA2;
+module.exports.help = {
+  name: "tarta2",
+  aliases: ["t2"],
+  category: "tarta",
+  description: "Désigne la cible 2 dans Tarta",
+  isAdmin: false,
+  permissions: true,
+  cooldown: 0,
+  args: true,
+  usage: "<tonMsg>"
+}

@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { MESSAGES } = require("../../util/constants");
+
 
 module.exports.run = (client, message) => {
 
@@ -15,4 +15,14 @@ module.exports.run = (client, message) => {
   });
 };
 
-module.exports.help = MESSAGES.COMMANDS.MISC.MEMBERS;
+module.exports.help = {
+  name: "members",
+  aliases: ["members", "mbr", "mbrs"],
+  category: "misc",
+  description: "Affiche la liste des membres de la guilde",
+  permissions: false,
+  isAdmin: false,
+  cooldown: 5,
+  args: false,
+  usage: ""
+}

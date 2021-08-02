@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { MESSAGES, CHANNELS } = require("../../util/constants");
+const {  CHANNELS } = require("../../util/channels");
 
 module.exports.run = async (client, message, args) => {
   const embed = new MessageEmbed()
@@ -21,4 +21,14 @@ Merciiii !
   await client.channels.cache.get(CHANNELS.ANNC.id).send(embed);
 };
 
-module.exports.help = MESSAGES.COMMANDS.TARTA.TARTA_CLEAN;
+module.exports.help = {
+  name: "tarta_clean",
+  aliases: ["tc", "tclean"],
+  category: "tarta",
+  description: "Rush minuit Tarta",
+  isAdmin: false,
+  permissions: true,
+  cooldown: 0,
+  args: false,
+  usage: ""
+}

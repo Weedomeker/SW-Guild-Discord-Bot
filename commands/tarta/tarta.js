@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { MESSAGES, CHANNELS } = require("../../util/constants");
+const { CHANNELS } = require("../../util/channels");
 
 module.exports.run = (client, message, args) => {
   const nEmo = message.guild.emojis.cache.get("728730210547269736");
@@ -28,4 +28,14 @@ module.exports.run = (client, message, args) => {
   });
 };
 
-module.exports.help = MESSAGES.COMMANDS.TARTA.TARTA;
+module.exports.help = {
+  name: "tarta",
+  aliases: ["t"],
+  category: "tarta",
+  description: "user et lvl Tarta",
+  isAdmin: false,
+  permissions: true,
+  cooldown: 0,
+  args: true,
+  usage: "<tonMsg>"
+}

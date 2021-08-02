@@ -1,4 +1,4 @@
-const { CHANNELS } = require("../../util/constants");
+const { CHANNELS } = require("../../util/channels");
 module.exports = async (client, messageReaction, user) => {
   const { message } = messageReaction;
   const member = message.guild.members.cache.get(user.id);

@@ -7,23 +7,17 @@
   "author": "Weedomeker <weedomeker@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "^5.0.2",
-    "braces": "^3.0.2",
     "compression": "^1.7.4",
     "discord.js": "^12.5.3",
     "ejs": "^3.1.6",
-    "emoji-unicode": "^2.0.1",
     "express": "^4.17.1",
-    "forever-monitor": "^3.0.3",
-    "formidable": "^1.2.2",
-    "fs": "0.0.1-security",
+    "forever-monitor": "^1.5.2",
+    "fs": "^0.0.1-security",
     "fs-extra": "^10.0.0",
-    "mdbootstrap": "^4.19.2",
-    "minimist": "^1.2.5",
     "moment": "^2.29.1",
     "mongoose": "^5.13.1",
     "ms": "^2.1.3",
-    "npx": "^10.2.2",
+    "npx": "^3.0.0",
     "path": "^0.12.7",
     "pm2": "^5.1.0",
     "pm2-discord": "^0.1.2",
@@ -34,31 +28,5 @@
     "eslint": "^7.29.0",
     "eslint-config-aqua": "^9.0.2",
     "prettier": "^2.3.2"
-  },
-  "eslintConfig": {
-    "extends": "aqua/node",
-    "rules": {
-      "linebreak-style": [
-        "error",
-        "windows"
-      ],
-      "quotes": [
-        "warn",
-        "double"
-      ],
-      "indent": [
-        "error",
-        2
-      ],
-      "semi": [
-        "error",
-        "never"
-      ],
-      "comma-dangle": [
-        "error",
-        "never"
-      ],
-      "curly": "off"
-    }
   }
 }

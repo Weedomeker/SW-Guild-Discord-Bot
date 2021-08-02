@@ -1,6 +1,5 @@
-const { MessageEmbed } = require("discord.js");
-const { CHANNELS } = require("../../util/constants");
-const { User } = require("../../models/index");
+const { MessageEmbed } = require("discord.js")
+const { CHANNELS } = require("../../util/channels")
 
 module.exports = async (client, member) => {
   const embed = new MessageEmbed()
@@ -8,12 +7,10 @@ module.exports = async (client, member) => {
     .setColor("#FF0000")
     .setFooter("Nous avons un fuyard....")
     // .setThumbnail(client.user.displayAvatarURL())
-    .setTimestamp();
+    .setTimestamp()
 
-  client.channels.cache.get(CHANNELS.LOG.id).send(embed);
+  client.channels.cache.get(CHANNELS.LOG.id).send(embed)
 
-  await User.deleteOne({ username: member });
-  console.log(`${member} supprimé de la db.`);
-};
+}
 
 

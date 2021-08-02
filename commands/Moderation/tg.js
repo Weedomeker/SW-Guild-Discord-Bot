@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { MESSAGES, CHANNELS } = require("../../util/constants");
+const {  CHANNELS } = require("../../util/channels");
 
 module.exports.run = async (client, message, args) => {
   const user = message.guild.member(message.mentions.users.first());
@@ -30,4 +30,14 @@ module.exports.run = async (client, message, args) => {
   client.channels.cache.get(CHANNELS.LOG.id).send(embed);
 };
 
-module.exports.help = MESSAGES.COMMANDS.MODERATION.TG;
+module.exports.help = {
+  name: "tg",
+  aliases: ["tg"],
+  category: "moderation",
+  description: "Suppression des x derniers messages du membre.",
+  permissions: true,
+  isAdmin: true,
+  cooldown: 3,
+  args: true,
+  usage: "<user> <nbr (1-100)>"
+}

@@ -1,5 +1,5 @@
-const { MessageEmbed } = require("discord.js");
-const { CHANNELS } = require("../../util/constants");
+const { MessageEmbed } = require("discord.js")
+const { CHANNELS } = require("../../util/channels")
 
 module.exports = async (client, member) => {
   const embed = new MessageEmbed()
@@ -7,17 +7,10 @@ module.exports = async (client, member) => {
     .setColor("#00e51b")
     .setFooter("Un fou nous a rejoint !")
     // .setThumbnail(client.user.displayAvatarURL())
-    .setTimestamp();
+    .setTimestamp()
 
-  client.channels.cache.get(CHANNELS.LOG.id).send(embed);
+  client.channels.cache.get(CHANNELS.LOG.id).send(embed)
 
-  await client.createUser({
-    guildID: member.guild.id,
-    guildName: member.guild.name,
-    userID: member.id,
-    username: member.user.tag,
-    lanternes: 5
-  });
-};
+}
 
 

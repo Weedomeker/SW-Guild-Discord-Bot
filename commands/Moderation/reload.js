@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { MESSAGES, CHANNELS } = require("../../util/constants");
+const { CHANNELS } = require("../../util/channels");
 
 module.exports.run = async (client, message) => {
   await message.delete();
@@ -17,4 +17,13 @@ module.exports.run = async (client, message) => {
   process.exit();
 };
 
-module.exports.help = MESSAGES.COMMANDS.MODERATION.RELOAD;
+module.exports.help = {
+  name: "reload",
+  description: "Reboot le bot.",
+  aliases: ["reboot", "restart"],
+  category: "moderation",
+  permissions: true,
+  isAdmin: false,
+  args: false,
+  usage: ""
+}
