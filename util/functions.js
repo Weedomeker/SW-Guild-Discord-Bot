@@ -29,7 +29,7 @@ module.exports = client => {
     Guild.updateOne(
       { "users.id": member.id },
       { $set: options }
-    ).then(c => console.log(`${member.id}: profil mis à jour.`))
+    ).then(c => console.log(`${member.displayName}: profil mis à jour.`))
   }
 
 }
