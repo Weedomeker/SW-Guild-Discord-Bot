@@ -24,7 +24,7 @@
     "eslint": "^7.29.0",
     "eslint-config-aqua": "^9.0.2",
     "prettier": "^2.3.2",
-    "forever-monitor": "^1.7.2",
+    "forever-monitor": "^3.0.3",
     "pm2": "^5.1.0",
     "pm2-discord": "^0.1.2"
   }
