@@ -21,7 +21,7 @@
     "webhook-discord": "^3.7.7"
   },
   "devDependencies": {
-    "eslint": "^7.29.0",
+    "eslint": "^8.0.1",
     "eslint-config-aqua": "^9.0.2",
     "prettier": "^2.3.2",
     "forever-monitor": "^1.7.2",
