@@ -77,7 +77,8 @@ module.exports = async (client, message) => {
   setTimeout(() => tStamps.delete(message.author.id), cdAmount)
 
 
-  command.run(client, message, args, userInfo)
+  command.run(client, message, args, userInfo
+  )
   message.delete()
   elapsedTime = new Date().getTime() - startTime
 
