@@ -1,0 +1,15 @@
+node_modules/
+config.js
+.config/
+.npm/
+.pm2/
+.ssh/
+.vscode/
+Orphea_Discord_Bot.code-workspace
+memo
+test/
+Drive/
+.cache/
+SW_Exporter
+.viminfo
+.node_repl_history

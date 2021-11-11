@@ -1,0 +1,90 @@
+<%-include("header");-%>
+
+<body>
+  <!-- <script>
+    function showContent() {
+      document.querySelector(".loader-container").classList.add("hidden");
+    }
+    setTimeout(showContent, 3000);
+  </script>
+  <div class="loader-container">
+    <div class="loader"></div>
+    <p>GUILDE</p>
+    <div class="filet"></div>
+  </div> -->
+
+  <div class="container-grid">
+    <header>
+      <div class="overlay"></div>
+        <video autoplay loop muted >
+          <source src="../public/res/luffy-in-gray-terminal-free-live-wallpaper.mp4">
+          </video>
+              <h1><%- guild_name %></h1>   
+    </header>
+
+    <nav>
+      <div class="list-nav">
+        <a href="#">Accueil</a>
+        <a href="#">Commandes</a>
+        <a href="#">Config</a>
+      </div>
+    </nav>
+    <main id="scrollbar">
+      <div class="Annonce">
+        <%- annonce %> 
+      </div>
+      <div class="stats">
+        <h2>Membres</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Membres</th>
+              <th>Depuis le</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <%-members%>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="stats">
+        <h2>Arene Score</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Membres</th>
+              <th>Arene pts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <%-arene%>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="stats">
+        <h2>Activity Score</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Membres</th>
+              <th>activités pts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <%-activity%> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="update">last update: <%- update %> </div>
+    </main>
+    <body>
+      <%-include("footer");-%>
+    </body>
+  </div>
+</body>
