@@ -16,12 +16,15 @@ module.exports = client => {
     if (data) return data
   }
 
+<<<<<<< HEAD
   client.getUser = async member => {
     const data = await client.getGuild(member.guild);
     const position = data.users.map(e => e.id).indexOf(member.id);
     return data.users[position];
   }
 
+=======
+>>>>>>> 6ffdc14bbefc21668cd1b8781141aa9b17e637c5
   client.updateGuild = async (guild, settings) => {
     let data = await client.getGuild(guild)
     if (typeof data !== "object") data = {}
