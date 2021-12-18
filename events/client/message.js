@@ -29,13 +29,7 @@ module.exports = async (client, message) => {
     ).then(d => console.log(`${message.member.displayName}: ajouté dans la db.`))
   }
 
-  // const expCd = Math.floor(Math.random() * 19) + 1
-  // const expToAdd = Math.floor(Math.random() * 25) + 10
-
-  // if (expCd >= 8 && expCd <= 11) {
-  //   // console.log(`Exp gagné: ${expToAdd}`);
-  //   await client.addExp(client, message.member, expToAdd)
-  // }
+ 
   if (!message.content.startsWith(client.config.PREFIX)) return
   const args = message.content.slice(client.config.PREFIX.length).split(/ +/)
   const commandName = args.shift().toLowerCase()
@@ -77,12 +71,8 @@ module.exports = async (client, message) => {
   setTimeout(() => tStamps.delete(message.author.id), cdAmount)
 
 
-<<<<<<< HEAD
   command.run(client, message, args, userInfo
   )
-=======
-  command.run(client, message, args, userInfo)
->>>>>>> 6ffdc14bbefc21668cd1b8781141aa9b17e637c5
   message.delete()
   elapsedTime = new Date().getTime() - startTime
 

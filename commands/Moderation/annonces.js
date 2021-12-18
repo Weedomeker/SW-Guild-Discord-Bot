@@ -47,11 +47,7 @@ module.exports.run = (client, message) => {
       client.channels.cache.get(CHANNELS.DESK.id).send(embed);
     }*/
     // RAPPEL GVO Mercredi
-<<<<<<< HEAD
     if (weekDay === 3 && hrs === 21 && mins === 00 && secs === 00) {
-=======
-    if (weekDay === 3 && hrs === 21 && mins === 30 && secs === 00) {
->>>>>>> 6ffdc14bbefc21668cd1b8781141aa9b17e637c5
       const embed = new MessageEmbed()
 
         .setColor("#FF4E0C")
@@ -170,11 +166,7 @@ module.exports.run = (client, message) => {
   }, 1000);
 
   client.channels.cache.get(CHANNELS.LOG.id).send(
-<<<<<<< HEAD
     "Annonces GVG et GVO lancées.\n\`Mercredi: 12h Abs Tarta / 21h00 Rappel GVO\nJeudi: 21h grosse def.\nDimanche: 12h troll def. ET Inscription GVO !!!\`"
-=======
-    "Annonces GVG et GVO lancées.\n\`Mercredi: 12h Abs Tarta / 21h30 Rappel GVO\nJeudi: 21h grosse def.\nDimanche: 12h troll def. ET Inscription GVO !!!\`"
->>>>>>> 6ffdc14bbefc21668cd1b8781141aa9b17e637c5
   );
 };
 
