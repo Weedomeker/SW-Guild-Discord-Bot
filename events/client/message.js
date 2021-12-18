@@ -1,6 +1,5 @@
 
 const { Collection } = require("discord.js")
-const { Guild } = require("../../models")
 
 module.exports = async (client, message) => {
   const startTime = new Date().getTime()
@@ -12,21 +11,18 @@ module.exports = async (client, message) => {
   const data = await client.getGuild(message.guild)
   const position = data.users.map(e => e.id).indexOf(message.member.id)
   const userInfo = data.users[position]
+ 
+  if (message.guild && position == -1)
+    await client.createUser(message.member, message.guild);
+    
 
-  if (message.guild && position == -1) {
-    Guild.updateOne(
-      { guildID: message.guild.id },
-      { $push:
-        {
-          users:
-        {
-          id: message.member.id,
-          name: message.member.displayName,
-          lanternes: 5
-        }
-        }
-      }
-    ).then(d => console.log(`${message.member.displayName}: ajouté dans la db.`))
+  if (message.member.displayName != userInfo.name) {
+  await client.updateUserInfo(message.member,
+    {
+      "users.$.name": message.member.displayName
+    })
+    console.log(userInfo);
+    console.log(`${message.member.displayName}: profil mis à jour.`);
   }
 
  
@@ -71,8 +67,7 @@ module.exports = async (client, message) => {
   setTimeout(() => tStamps.delete(message.author.id), cdAmount)
 
 
-  command.run(client, message, args, userInfo
-  )
+  command.run(client, message, args, userInfo)
   message.delete()
   elapsedTime = new Date().getTime() - startTime
 

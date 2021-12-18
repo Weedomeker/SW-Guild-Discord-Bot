@@ -1,7 +1,6 @@
 const { CHANNELS } = require("../../util/channels");
-const { User } = require("../../models/index");
 
-module.exports = async (client, messageReaction, user) => {
+module.exports = async (client, messageReaction, user, userInfo) => {
   const { message } = messageReaction;
   const member = message.guild.members.cache.get(user.id);
   const emoji = messageReaction.emoji.name;
@@ -23,6 +22,23 @@ module.exports = async (client, messageReaction, user) => {
 
   if (member.user.bot) return;
 
+// Logs inscriptions gvg gvo.
+const d = new Date();
+const date = d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear();
+const hours = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+const fullDate = date+' '+hours;
+
+  if (["gvg"].includes(emoji) && message.channel.id === CHANNELS.ANNC.id) {
+    
+    client.channels.cache.get(CHANNELS.LOG.id).send(`►${member.displayName} inscrit **GVG** le ${date} à ${hours} `);
+  }
+  if (["gvo"].includes(emoji) && message.channel.id === CHANNELS.ANNC.id) {
+    
+    client.channels.cache.get(CHANNELS.LOG.id).send(`•${member.displayName} inscrit **GVO** le ${date} à ${hours} `);
+  }
+
+  
+// Tarta
   if (["Normal", "Hard", "Hell"].includes(emoji) && message.channel.id === channel.id) {
     switch (emoji) {
     case "Normal":
@@ -44,17 +60,22 @@ module.exports = async (client, messageReaction, user) => {
   }
   if (emoji === "✅" && message.channel.id === channel.id) {
     await message.edit(`~~${message.content}~~`);
-    // recup id user
-    const usrFind = await User.findOne({ userID: user.id });
-    // stock user lanternes db
-    const usrLant = usrFind.lanternes;
+    const usr = await client.getUser(member)
+    console.log(usr);
+    const updateLant = usr.lanternes - 1;
     // update db
-    await User.updateOne({userID: user.id}, {lanternes: usrLant - 1});
-    // bloque à 0 mini.
-    if (usrLant <= 0) {
-      await User.updateOne({userID: user.id}, {lanternes: 0});
-    }
-    console.log(`${user.username}: update db ${usrLant - 1} lanternes restantes.`);
+    await client.updateUserInfo(member,
+      {
+        "users.$.lanternes": updateLant
+      })
+
+      console.log(await client.getUser(member));
+       
+    // // bloque à 0 mini.
+    // if (usrLant <= 0) {
+    //   await User.updateOne({userID: user.id}, {lanternes: 0});
+    // }
+    // console.log(`${user.username}: update db ${usrLant - 1} lanternes restantes.`);
     /* if (usrLant === 5) {
       await message.edit(`~~${message.content}~~`);
       await message.react(lta);
@@ -82,5 +103,5 @@ module.exports = async (client, messageReaction, user) => {
       await message.edit(`~~${message.content}~~`);
       await message.channel.send(`${member}: Tu n'as plus de lanternes dispo...`);
     } */
-  }
+   }
 };

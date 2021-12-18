@@ -19,4 +19,15 @@ module.exports = async client => {
   // .setImage(client.user.displayAvatarURL())
     .setTimestamp()
   await client.channels.cache.get("733684325870207126").send(embed)
+
+  const guild = []
+  client.guilds.cache.map(e => guild.push(e))
+  guild.forEach(async g => {
+    const data = await client.getGuild(g)
+    if (!data) {
+      client.createGuild({ guildID: g.id })
+      console.log(`Guild ${g.id} ajouté à la DB.`);
+    }
+  })
+
 }

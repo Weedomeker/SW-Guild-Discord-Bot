@@ -1,8 +1,5 @@
-/* eslint-disable object-curly-spacing */
-/* eslint-disable quote-props */
 const mongoose = require("mongoose")
-const { Guild } = require("../models/index")
-
+const { Guild } = require("../models/")
 module.exports = client => {
   // GUILD
   client.createGuild = async guild => {
@@ -31,11 +28,32 @@ module.exports = client => {
     return data.updateOne(settings)
   }
 
+  client.createUser = (member, guild) => {
+    Guild.updateOne(
+      { guildID: guild.id },
+      {
+        $push: {
+          users: {
+            id: member.id,
+            name: member.displayName,
+            lanternes: 5
+          }
+        }
+      }
+    ).then(d => console.log(`${member.displayName}: ajouté dans la db.`));
+  }
+
   client.updateUserInfo = (member, options = {}) => {
     Guild.updateOne(
       { "users.id": member.id },
       { $set: options }
-    ).then(c => console.log(`${member.displayName}: profil mis à jour.`))
+    ).then(c => console.log(c))
+  }
+
+  client.updateUsers = ({ }, options = {}) => {
+    Guild.updateMany({ },
+      { $set: options }
+    ).then(c => console.log(c))
   }
 
 }

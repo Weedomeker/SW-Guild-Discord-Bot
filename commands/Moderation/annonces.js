@@ -1,7 +1,7 @@
 /* eslint-disable quotes */
 /* eslint-disable no-octal */
 /* eslint-disable no-mixed-operators */
-const {  CHANNELS } = require("../../util/channels");
+const { CHANNELS } = require("../../util/channels");
 const { MessageEmbed, MessageAttachment } = require("discord.js");
 const trollImg = new MessageAttachment("./assets/img/troll.png");
 const defImg = new MessageAttachment("./assets/img/def.png");
@@ -9,7 +9,12 @@ const gvgImg = new MessageAttachment("./assets/img/gvg.png");
 const gvoImg = new MessageAttachment("./assets/img/gvo.png");
 const fs = require("fs");
 
+
 module.exports.run = (client, message) => {
+
+  const gvo = message.guild.emojis.cache.get("917473796762501170");
+  const gvg = message.guild.emojis.cache.get("917473891885137973");
+
   setInterval(() => {
     const d = new Date();
     const weekDay = d.getDay();
@@ -47,22 +52,22 @@ module.exports.run = (client, message) => {
       client.channels.cache.get(CHANNELS.DESK.id).send(embed);
     }*/
     // RAPPEL GVO Mercredi
-    if (weekDay === 3 && hrs === 21 && mins === 00 && secs === 00) {
-      const embed = new MessageEmbed()
+    // if (weekDay === 3 && hrs === 21 && mins === 00 && secs === 00) {
+    //   const embed = new MessageEmbed()
 
-        .setColor("#FF4E0C")
-        .attachFiles(gvoImg)
-        .setThumbnail("attachment://gvo.png")
-        .addField(
-          "Hey mes petites cailles en sucre",
-          "Faut lancer les inscriptions GVO. En vous remerciant. Cordialement etc etc.."
-        )
-        .setTimestamp()
-        .setFooter(message.author.username, message.author.avatarURL());
+    //     .setColor("#FF4E0C")
+    //     .attachFiles(gvoImg)
+    //     .setThumbnail("attachment://gvo.png")
+    //     .addField(
+    //       "Hey mes petites cailles en sucre",
+    //       "Faut lancer les inscriptions GVO. En vous remerciant. Cordialement etc etc.."
+    //     )
+    //     .setTimestamp()
+    //     .setFooter(message.author.username, message.author.avatarURL());
 
-      client.channels.cache.get(CHANNELS.DESK.id).send(embed);
-      client.channels.cache.get(CHANNELS.DESK.id).send("@Neph");
-    }
+    //   client.channels.cache.get(CHANNELS.DESK.id).send(embed);
+    //   client.channels.cache.get(CHANNELS.DESK.id).send("@Neph");
+    // }
 
     // DEF JEUDI
     if (weekDay === 4 && hrs === 21 && mins === 00 && secs === 00) {
@@ -74,7 +79,7 @@ module.exports.run = (client, message) => {
         .setThumbnail("attachment://def.png")
         .addField(
           "Hello",
-          "Merci de mettre vos grosses def avant demain matin 9h! Ceux qui ne l'ont pas fait ne seront pas inscrits!\n@everyone"
+          "Merci de mettre vos grosses def avant demain matin 9h!\n@everyone"
         )
         .setTimestamp()
         .setFooter(message.author.username, message.author.avatarURL());
@@ -92,7 +97,7 @@ module.exports.run = (client, message) => {
         .addField(
           "Hello",
           `Cliquez sur l'emote si vous êtes sûrs & certains d'être assez disponible pour participer convenablement aux GvG de cette semaine.
-    Et de mettre vos trolls def! Je n'inscris pas les gens qui ne les ont pas mises!`
+    Et de mettre vos trolls def!`
         )
         .setTimestamp()
         .setFooter(message.author.username, message.author.avatarURL());
@@ -101,7 +106,7 @@ module.exports.run = (client, message) => {
         .get(CHANNELS.ANNC.id)
         .send(embed)
         .then(async msg => {
-          await msg.react("☝️");
+          await msg.react(gvg);
         });
     }
 
@@ -118,7 +123,7 @@ module.exports.run = (client, message) => {
         \nSoyez sûre et certain de pouvoir y participer le plus activement possible !
         \nSi vous prenez une tour, vous remplissez la déf !
         \nCheckez vos déf avant inscriptions.
-        \n25 places dispos. Premier arrivé, premier servit..`
+        \n25 places dispos. Premier arrivé, premier servi..`
         )
         .setTimestamp()
         .setFooter(message.author.username, message.author.avatarURL());
@@ -127,7 +132,7 @@ module.exports.run = (client, message) => {
         .get(CHANNELS.ANNC.id)
         .send(embed)
         .then(async msg => {
-          await msg.react("☝️");
+          await msg.react(gvo);
         });
     }
 
