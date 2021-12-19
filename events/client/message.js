@@ -11,21 +11,22 @@ module.exports = async (client, message) => {
   const data = await client.getGuild(message.guild)
   const position = data.users.map(e => e.id).indexOf(message.member.id)
   const userInfo = data.users[position]
- 
-  if (message.guild && position == -1)
-    await client.createUser(message.member, message.guild);
-    
 
-  if (message.member.displayName != userInfo.name) {
-  await client.updateUserInfo(message.member,
-    {
-      "users.$.name": message.member.displayName
-    })
-    console.log(userInfo);
-    console.log(`${message.member.displayName}: profil mis à jour.`);
+  if (message.guild && position == -1)
+    await client.createUser(message.member, message.guild)
+
+
+
+  if (message.guild && position >= 0) {
+    if (userInfo.name != message.member.displayName) {
+      await client.updateUserInfo(message.member,
+        {
+          "users.$.name": message.member.displayName
+        })
+    }
   }
 
- 
+
   if (!message.content.startsWith(client.config.PREFIX)) return
   const args = message.content.slice(client.config.PREFIX.length).split(/ +/)
   const commandName = args.shift().toLowerCase()

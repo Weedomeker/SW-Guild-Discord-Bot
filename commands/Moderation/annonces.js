@@ -12,9 +12,6 @@ const fs = require("fs");
 
 module.exports.run = (client, message) => {
 
-  const gvo = message.guild.emojis.cache.get("917473796762501170");
-  const gvg = message.guild.emojis.cache.get("917473891885137973");
-
   setInterval(() => {
     const d = new Date();
     const weekDay = d.getDay();
@@ -106,7 +103,7 @@ module.exports.run = (client, message) => {
         .get(CHANNELS.ANNC.id)
         .send(embed)
         .then(async msg => {
-          await msg.react(gvg);
+          await msg.react("⚔️");
         });
     }
 
@@ -132,7 +129,7 @@ module.exports.run = (client, message) => {
         .get(CHANNELS.ANNC.id)
         .send(embed)
         .then(async msg => {
-          await msg.react(gvo);
+          await msg.react("🛡");
         });
     }
 

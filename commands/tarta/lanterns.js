@@ -17,34 +17,36 @@ module.exports.run = async (client, message) => {
         if (e.lanternes === 0) {
           embed.addField(
             e.name,
-            `${lant_nb}${lant_nb}${lant_nb}${lant_nb}${lant_nb}`
+            `${lant_nb}${lant_nb}${lant_nb}${lant_nb}${lant_nb}`, true
           );
         }
         if (e.lanternes === 1) {
           embed.addField(
             e.name,
-            `${lant}${lant_nb}${lant_nb}${lant_nb}${lant_nb}`
+            `${lant}${lant_nb}${lant_nb}${lant_nb}${lant_nb}`, true
           );
         }
         if (e.lanternes === 2) {
           embed.addField(
             e.name,
-            `${lant}${lant}${lant_nb}${lant_nb}${lant_nb}`
+            `${lant}${lant}${lant_nb}${lant_nb}${lant_nb}`, true
           );
         }
         if (e.lanternes === 3) {
           embed.addField(
             e.name,
-            `${lant}${lant}${lant}${lant_nb}${lant_nb}`
+            `${lant}${lant}${lant}${lant_nb}${lant_nb}`, true
           );
         }
         if (e.lanternes === 4) {
           embed.addField(e.name,
-            `${lant}${lant}${lant}${lant}${lant_nb}`);
+            `${lant}${lant}${lant}${lant}${lant_nb}`, true
+            );
         }
         if (e.lanternes === 5) {
           embed.addField(e.name,
-            `${lant}${lant}${lant}${lant}${lant}`);
+            `${lant}${lant}${lant}${lant}${lant}`, true
+            );
         }
       })
   message.channel.send(embed);

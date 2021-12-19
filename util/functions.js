@@ -14,7 +14,7 @@ module.exports = client => {
   }
 
   client.getUser = async member => {
-    const data = await client.getGuild(member.guild);
+    const data = await client.getUser(member.id);
     const position = data.users.map(e => e.id).indexOf(member.id);
     return data.users[position];
   }
@@ -47,13 +47,13 @@ module.exports = client => {
     Guild.updateOne(
       { "users.id": member.id },
       { $set: options }
-    ).then(c => console.log(c))
+    ).then(c => console.log(`${member.displayName}: profil mis à jour.`))
   }
 
   client.updateUsers = ({ }, options = {}) => {
     Guild.updateMany({ },
       { $set: options }
-    ).then(c => console.log(c))
+    ).then(c => console.log(`${options}: mises à jour.`))
   }
 
 }

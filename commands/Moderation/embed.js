@@ -1,21 +1,30 @@
-// @ts-check
-const { MessageEmbed } = require("discord.js");
-const fs = require("fs");
+const { CHANNELS } = require("../../util/channels");
+const { MessageEmbed, MessageAttachment } = require("discord.js");
+const trollImg = new MessageAttachment("./assets/img/troll.png");
+
 
 module.exports.run = (client, message) => {
-  const rawdata = fs.readFileSync("./util/announces.json", "utf8");
-  const data = JSON.parse(rawdata);
-  console.log(data);
 
+  const gvg = message.guild.emojis.cache.get("917469589963698186");
   const embed = new MessageEmbed()
-    // .setAuthor(message.author.username, message.author.avatarURL())
-    .setColor("#00d2ff")
-    // .setThumbnail(client.user.displayAvatarURL())
-    .addField(`${data.Announces.gvg_reminder.title}`, `${data.Announces.gvg_reminder.text}\n`)
+    .setTitle("Inscriptions GvG à 19h30!")
+    .setColor("#FF0000")
+    .attachFiles(trollImg)
+    .setThumbnail("attachment://troll.png")
+    .addField(
+      "Hello",
+      `Cliquez sur l'emote si vous êtes sûrs & certains d'être assez disponible pour participer convenablement aux GvG de cette semaine.
+    Et de mettre vos trolls def!`
+    )
     .setTimestamp()
     .setFooter(message.author.username, message.author.avatarURL());
 
-  message.channel.send(embed);
+  client.channels.cache
+    .get(CHANNELS.LOG.id)
+    .send(embed)
+    .then(async msg => {
+      await msg.react("⚔️");
+    });
 };
 
 module.exports.help = {
