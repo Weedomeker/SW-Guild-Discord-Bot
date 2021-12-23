@@ -35,7 +35,7 @@ module.exports.run = (client, message) => {
 
 module.exports.help = {
   name: "guilde",
-  aliases: ["guilde", "gld", "g"],
+  aliases: ["guilde", "gld", "g", "guilds"],
   category: "misc",
   description: "Membres de la guilde (ig).",
   isAdmin: false,

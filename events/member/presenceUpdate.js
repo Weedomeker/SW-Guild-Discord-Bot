@@ -1,10 +1,10 @@
 
-module.exports = async (client, message) => {
+module.exports = async (client, oldMember, newMember) => {
   
-  const data = await client.getGuild(message.member.guild)
-  const position = data.users.map(e => e.id).indexOf(message.member.id)
-  if (message.member.guild && position == -1)
-    await client.createUser(message.member, message.guild)
+  const data = await client.getGuild(newMember.guild)
+  const position = data.users.map(e => e.id).indexOf(newMember.member.id)
+  if (newMember.member.guild && position == -1)
+    await client.createUser(newMember.member, newMember.guild)
 
 
 }
