@@ -6,6 +6,9 @@
   "repository": "https://github.com/Weedomeker/bot-discord.git",
   "author": "Weedomeker <weedomeker@gmail.com>",
   "license": "MIT",
+  "publishConfig": {
+    "@Weedomeker:registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
     "compression": "^1.7.4",
     "discord.js": "^12.5.3",
