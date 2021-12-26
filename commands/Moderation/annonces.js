@@ -67,21 +67,21 @@ module.exports.run = (client, message) => {
     // }
 
     // DEF JEUDI
-    if (weekDay === 4 && hrs === 21 && mins === 00 && secs === 00) {
-      client.channels.cache.get(CHANNELS.ANNC.id).send("@everyone");
-      const embed = new MessageEmbed()
-        .setTitle("Grosses def GvG!")
-        .setColor("#FF0000")
-        .attachFiles(defImg)
-        .setThumbnail("attachment://def.png")
-        .addField(
-          "Hello",
-          "Merci de mettre vos grosses def avant demain matin 9h!\n@everyone"
-        )
-        .setTimestamp()
-        .setFooter(message.author.username, message.author.avatarURL());
-      client.channels.cache.get(CHANNELS.ANNC.id).send(embed);
-    }
+    // if (weekDay === 4 && hrs === 21 && mins === 00 && secs === 00) {
+    //   client.channels.cache.get(CHANNELS.ANNC.id).send("@everyone");
+    //   const embed = new MessageEmbed()
+    //     .setTitle("Grosses def GvG!")
+    //     .setColor("#FF0000")
+    //     .attachFiles(defImg)
+    //     .setThumbnail("attachment://def.png")
+    //     .addField(
+    //       "Hello",
+    //       "Merci de mettre vos grosses def avant demain matin 9h!\n@everyone"
+    //     )
+    //     .setTimestamp()
+    //     .setFooter(message.author.username, message.author.avatarURL());
+    //   client.channels.cache.get(CHANNELS.ANNC.id).send(embed);
+    // }
 
     // DEF DIMANCHE
     if (weekDay === 0 && hrs === 12 && mins === 00 && secs === 00) {
