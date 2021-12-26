@@ -60,6 +60,7 @@ module.exports = async (client, messageReaction, user, userInfo) => {
   }
   if (emoji === "✅" && message.channel.id === channel.id) {
     await message.edit(`~~${message.content}~~`);
+    console.log(member);
     const usr = await client.getUser(member)
     const updateLant = usr.lanternes - 1;
     // update db
