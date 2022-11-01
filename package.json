@@ -20,7 +20,7 @@
     "url": "git+https://github.com/Weedomeker/SW-Guild-Discord-Bot.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@weedomeker"
+    "@weedomeker:registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
     "compression": "^1.7.4",
