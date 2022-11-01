@@ -37,7 +37,7 @@ module.exports.help = {
   category: "tarta",
   description: "Désigne la cible 2 dans Tarta",
   isAdmin: false,
-  permissions: true,
+  permissions: false,
   cooldown: 0,
   args: true,
   usage: "<tonMsg>"

@@ -1,34 +1,37 @@
-const { MessageEmbed } = require("discord.js");
-const {  CHANNELS } = require("../../util/channels");
+const { MessageEmbed } = require('discord.js')
+const { CHANNELS } = require('../../util/channels')
 
 module.exports.run = async (client, message, args) => {
   const embed = new MessageEmbed()
-    .setColor("#eb4934")
+    .setColor('#eb4934')
     .addField(
-      "Tarta trouvé !!!",
+      'Tarta trouvé !!!',
       `
 **Du coup comme d'hab :**
-• 1 atq réussie obligatoire sur lui aujourd'hui **ET** demain sinon pas de coffre pour vous.
-• **360 points mini** pour ouvrir le coffre
-• Un MAX de monde disponible à minuit pile pour taper Tarta et tenter de le finir avant 00h05 !
+• Avant minuit, 1 atq réussie sur lui (normale) pour ceux à qui il reste encore une lanterne
+• Une (ou deux) attaque(s) de plus dimanche (et lundi si SS)
+
+Pensez aussi à faire vos lanternes restantes une fois le Tarta trouvé/mort et les jours suivants, les récompenses régalent bien souvent!
 
 Merciiii !
       `
     )
     .setTimestamp()
-    .setFooter(message.author.username, message.author.avatarURL());
-  await client.channels.cache.get(CHANNELS.ANNC.id).send("@everyone");
-  await client.channels.cache.get(CHANNELS.ANNC.id).send(embed);
-};
+    .setFooter(message.author.username, message.author.avatarURL())
+  await client.channels.cache
+    .get(CHANNELS.ANNC.id)
+    .send('<@&674895127407230977>')
+  await client.channels.cache.get(CHANNELS.ANNC.id).send(embed)
+}
 
 module.exports.help = {
-  name: "tarta_clean",
-  aliases: ["tc", "tclean"],
-  category: "tarta",
-  description: "Rush minuit Tarta",
+  name: 'tarta_clean',
+  aliases: ['tc', 'tclean'],
+  category: 'tarta',
+  description: 'Rush minuit Tarta',
   isAdmin: false,
-  permissions: true,
+  permissions: false,
   cooldown: 0,
   args: false,
-  usage: ""
+  usage: '',
 }

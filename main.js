@@ -3,7 +3,7 @@ let elapsedTime = 0
 const { Client, Collection } = require("discord.js")
 const { loadCommands, loadEvents } = require("./util/loader")
 
-const client = new Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] })
+const client = new Client({ partials: ["USER", "MESSAGE", "CHANNEL", "REACTION"] })
 require("./util/functions")(client)
 client.config = require("./config")
 client.mongoose = require("./util/mongoose");

@@ -34,7 +34,7 @@ module.exports.help = {
   category: "tarta",
   description: "user et lvl Tarta",
   isAdmin: false,
-  permissions: true,
+  permissions: false,
   cooldown: 0,
   args: true,
   usage: "<tonMsg>"

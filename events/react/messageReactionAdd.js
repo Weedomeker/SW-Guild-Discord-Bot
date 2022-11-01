@@ -1,5 +1,6 @@
 const { CHANNELS } = require("../../util/channels");
 
+
 module.exports = async (client, messageReaction, user, userInfo) => {
   const { message } = messageReaction;
   const member = message.guild.members.cache.get(user.id);
@@ -30,11 +31,15 @@ module.exports = async (client, messageReaction, user, userInfo) => {
 
   if (emoji === "⚔️" && message.channel.id === CHANNELS.ANNC.id) {
 
-    client.channels.cache.get(CHANNELS.LOG.id).send(`►${member.displayName} inscrit **GVG** le ${date} à ${hours} `);
+    client.channels.cache.get(CHANNELS.LOG.id).send(`⚔️ ${member.displayName} inscrit à \`${hours}\``);
   }
-  if (emoji === "🛡" && message.channel.id === CHANNELS.ANNC.id) {
+  if (emoji === "🤖" && message.channel.id === CHANNELS.ANNC.id) {
 
-    client.channels.cache.get(CHANNELS.LOG.id).send(`•${member.displayName} inscrit **GVO** le ${date} à ${hours} `);
+    client.channels.cache.get(CHANNELS.LOG.id).send(`🤖 ${member.displayName} inscrit à \`${hours}\``);
+  }
+  if (emoji === "🛡️" && message.channel.id === CHANNELS.ANNC.id) {
+
+    client.channels.cache.get(CHANNELS.LOG.id).send(`🛡️ ${member.displayName} inscrit à \`${hours}\``);
   }
 
 
@@ -59,8 +64,10 @@ module.exports = async (client, messageReaction, user, userInfo) => {
     }
   }
   if (emoji === "✅" && message.channel.id === channel.id) {
+    const member = message.guild.members.cache.get(user.id);
+
     await message.edit(`~~${message.content}~~`);
-    console.log(member);
+    //console.log(member.id);
     const usr = await client.getUser(member)
     const updateLant = usr.lanternes - 1;
     // update db
@@ -97,11 +104,11 @@ module.exports = async (client, messageReaction, user, userInfo) => {
   //     await message.react(lta);
   //     await message.react(ltb);
   //   }
-    if (usr.lanternes === 2) {
-      await message.edit(`~~${message.content}~~`);
-      // await message.react(lta);
-      await message.channel.send(`\`${member.displayName}: Dernière lanterne ! À garder pour Tarta !\``);
-    }
+    // if (usr.lanternes === 2) {
+    //   await message.edit(`~~${message.content}~~`);
+    //   // await message.react(lta);
+    //   await message.channel.send(`\`${member.displayName}: Dernière lanterne ! À garder pour Tarta !\``);
+    // }
   //   if (usrLant <= 1) {
   //     await message.edit(`~~${message.content}~~`);
   //     await message.channel.send(`${member}: Tu n'as plus de lanternes dispo...`);
