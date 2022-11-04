@@ -59,9 +59,7 @@ module.exports.run = (client, message) => {
           )
           .setTimestamp()
           .setFooter(message.author.username, message.author.avatarURL())
-        client.channels.cache
-          .get(CHANNELS.ABS.id)
-          .send('<@&674895127407230977>')
+        client.channels.cache.get(CHANNELS.ABS.id).send('<@&674895127407230977>')
         client.channels.cache
           .get(CHANNELS.ABS.id)
           .send(embed)
@@ -91,9 +89,7 @@ module.exports.run = (client, message) => {
           )
           .setTimestamp()
           .setFooter(message.author.username, message.author.avatarURL())
-        client.channels.cache
-          .get(CHANNELS.ABS.id)
-          .send('<@&674895127407230977>')
+        client.channels.cache.get(CHANNELS.ABS.id).send('<@&674895127407230977>')
         client.channels.cache.get(CHANNELS.ABS.id).send(embed)
       }
     }
@@ -115,9 +111,7 @@ module.exports.run = (client, message) => {
     }
   }, 1000)
 
-  client.channels.cache
-    .get(CHANNELS.LOG.id)
-    .send('Annonces automatiques activées')
+  client.channels.cache.get(CHANNELS.LOG.id).send(`\`Annonces automatiques activées\``)
 }
 
 module.exports.help = {

@@ -17,6 +17,12 @@ const CHANNELS = {
   ABS: {
     id: '675872225970356256',
   },
+  BOT_LOG: {
+    id: '733710645966536734',
+  },
+  CODE_COUPON: {
+    id: '674889708295159808',
+  },
 }
 
 exports.CHANNELS = CHANNELS

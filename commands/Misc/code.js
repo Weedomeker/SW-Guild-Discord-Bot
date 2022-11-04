@@ -78,42 +78,42 @@ module.exports.run = async (client, message, args) => {
   }
 
   //Auto msg Coupons
-  if (args[0] === 'on') {
-    await client.channels.cache.get(CHANNELS.LOG.id).send('`Code auto activé`')
-
-    const scanCode = async () => {
-      const compare = (a, b) => {
-        let result = JSON.stringify(a) === JSON.stringify(b)
-        //console.log(result)
-        return result
-      }
-      let oldCode = await db.getData('/')
-      const data = await fetchCoupons(0)
-      if (compare(data.code, oldCode.code) == false) {
-        const embed = new MessageEmbed()
-          .setTitle('Nouveau code coupon trouvé !')
-          .setColor('#FF8033')
-          .attachFiles(img)
-          .setThumbnail('attachment://coupon-logo.png')
-          .addFields(
-            { name: 'android:', value: `${data.code}`, inline: true },
-            { name: 'ios:', value: `[Lien withhive](${data.url})`, inline: true },
-            { name: '\u200b', value: '\u200b', inline: true },
-            { name: 'item(s):', value: `${data.item}`, inline: true },
-            { name: 'vérifié:', value: `${data.score} fois.`, inline: true }
-          )
-          .setFooter(`<@code last> pour voir les derniers codes valides.\n`)
-          .setTimestamp()
-        await client.channels.cache.get(CHANNELS.LOG.id).send(embed)
-        await db.push('/', data)
-      } else {
-        await client.channels.cache.get(CHANNELS.LOG.id).send('Search codes...')
-        await db.reload()
-      }
+  const scanCode = async () => {
+    const compare = (a, b) => {
+      let result = JSON.stringify(a) === JSON.stringify(b)
+      //console.log(result)
+      return result
     }
+    let oldCode = await db.getData('/')
+    const data = await fetchCoupons(0)
+    if (compare(data.code, oldCode.code) == false) {
+      const embed = new MessageEmbed()
+        .setTitle('Nouveau code coupon trouvé !')
+        .setColor('#FF8033')
+        .attachFiles(img)
+        .setThumbnail('attachment://coupon-logo.png')
+        .addFields(
+          { name: 'android:', value: `${data.code}`, inline: true },
+          { name: 'ios:', value: `[Lien withhive](${data.url})`, inline: true },
+          { name: '\u200b', value: '\u200b', inline: true },
+          { name: 'item(s):', value: `${data.item}`, inline: true },
+          { name: 'vérifié:', value: `${data.score} fois.`, inline: true }
+        )
+        .setFooter(`<@code last> pour voir les derniers codes valides.\n`)
+        .setTimestamp()
+      await client.channels.cache.get(CHANNELS.CODE_COUPON.id).send(embed)
+      await db.push('/', data)
+    } else {
+      await client.channels.cache.get(CHANNELS.BOT_LOG.id).send('`Search codes...`')
+      await client.channels.cache.get(CHANNELS.BOT_LOG.id).send(`\`DB: ${JSON.stringify(oldCode)}\``)
+      await db.reload()
+    }
+  }
+  if (args[0] === 'on') {
+    await client.channels.cache.get(CHANNELS.LOG.id).send(`\`Détection codes coupons activé\``)
     setInterval(() => {
       scanCode()
-    }, 1000 * 10)
+    }, 1000 * 300)
   }
 }
 
